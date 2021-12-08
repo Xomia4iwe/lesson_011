@@ -29,7 +29,7 @@ class PrimeNumbers:
         self.prime_numbers = []
 
     def __iter__(self):
-        self.i = -1
+        self.i = 0
         return self
 
     def __next__(self):
@@ -50,15 +50,27 @@ for number in prime_number_iterator:
     print(number)
 
 
-# TODO после подтверждения части 1 преподователем, можно делать
+
 # Часть 2
 # Теперь нужно создать генератор, который выдает последовательность простых чисел до n
 # Распечатать все простые числа до 10000 в столбик
 
 
 def prime_numbers_generator(n):
-    pass
-    # TODO здесь ваш код
+    i = 0
+    prime_numbers = []
+    while True:
+        i += 1
+        if i >= n:
+            break
+        else:
+            number = 1 + i
+            for prime in prime_numbers:
+                if number % prime == 0:
+                    break
+            else:
+                prime_numbers.append(number)
+                yield number
 
 
 for number in prime_numbers_generator(n=10000):
