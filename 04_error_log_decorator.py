@@ -18,7 +18,6 @@ def log_errors_in_file(log_name):
                 func(*arg, **kwargs)
             except Exception as arg:
                 with open(log_name, 'a', encoding='utf-8') as file:
-                    # (f'| Файл: {func}! Аргументы ошибки: {arg}! Класс ошибки: {type(arg)} | \n')
                     file.write(
                         '| {name:^20} | {param:^80} | {type_:^30} |\n'.format(name=str(func.__name__), param=str(arg),
                                                                               type_=str(type(arg))))
