@@ -34,7 +34,6 @@ def log_generator(file):
         yield key, value
 
 
-
 grouped_events = log_generator(file='events.txt')
 for group_time, event_count in grouped_events:
     print(f'[{group_time}] {event_count}')
